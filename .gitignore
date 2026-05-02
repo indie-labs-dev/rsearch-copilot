@@ -1,0 +1,20 @@
+# Node and development files
+node_modules/
+.DS_Store
+.env
+*.log
+npm-debug.log*
+
+# VS Code
+.vscode/
+
+# Cloudflare Wrangler
+.wrangler/
+worker/wrangler.toml
+worker/.dev.vars*
+
+# Local test config
+local-settings.json
+
+# OS generated files
+Thumbs.db

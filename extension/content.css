@@ -1,0 +1,427 @@
+/* ─── R-Searcher · Content Styles ─────────────────────────────────────── */
+
+/* ─── Tooltip ─────────────────────────────────────────────────────────────── */
+
+#rc-tooltip {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  animation: rc-fade-up 0.15s ease;
+}
+
+#rc-tooltip .rc-btn-explain {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0f0f0f;
+  color: #f5e642;
+  border: 1px solid #f5e642;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  letter-spacing: 0.02em;
+  transition: all 0.15s;
+}
+
+#rc-tooltip .rc-btn-explain:hover {
+  background: #f5e642;
+  color: #0f0f0f;
+}
+
+/* ─── Panel ───────────────────────────────────────────────────────────────── */
+
+#rc-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 360px;
+  max-height: 480px;
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(245,230,66,0.1);
+  z-index: 2147483646;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: rc-slide-up 0.2s ease;
+}
+
+.rc-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #1e1e1e;
+  background: #111;
+}
+
+.rc-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #f5e642;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.rc-close {
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+
+.rc-close:hover { color: #fff; }
+
+.rc-panel-quote {
+  padding: 10px 16px;
+  font-size: 11px;
+  color: #444;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Menlo, Courier, monospace;
+  border-bottom: 1px solid #1a1a1a;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.rc-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a2a transparent;
+}
+
+.rc-result {
+  color: #d4d4d4;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.rc-result strong { color: #fff; }
+
+.rc-result ul {
+  margin: 8px 0;
+  padding-left: 16px;
+}
+
+.rc-result li {
+  margin: 4px 0;
+  color: #c4c4c4;
+}
+
+.rc-result p { margin: 8px 0; }
+
+.rc-time-line {
+  display: none;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.rc-time-line.visible {
+  display: block;
+}
+
+.rc-panel-usage {
+  margin-bottom: 10px;
+}
+
+.rc-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.rc-result-label {
+  font-size: 10px;
+  color: #f5e642;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Menlo, Courier, monospace;
+}
+
+.rc-tab-bar {
+  display: flex;
+  border-bottom: 2px solid #1e1e1e;
+  margin: 0 -4px 0 -4px;
+  padding: 0 4px;
+}
+
+.rc-tab {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: #666;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s;
+}
+
+.rc-tab:hover { color: #aaa; }
+
+.rc-tab.active {
+  color: #f5e642;
+  border-bottom-color: #f5e642;
+}
+
+.rc-result-box {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 8px;
+  padding: 12px;
+  height: 180px;
+  overflow-y: auto;
+  color: #c4c4c4;
+  line-height: 1.7;
+  font-size: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a2a transparent;
+}
+
+.rc-copy-row {
+  margin-top: 10px;
+}
+
+.rc-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.rc-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #2a2a2a;
+  border-top-color: #f5e642;
+  border-radius: 50%;
+  animation: rc-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.rc-error {
+  color: #ff6b6b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.rc-panel-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #1e1e1e;
+  display: flex;
+  gap: 8px;
+}
+
+.rc-copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1a1a1a;
+  color: #888;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.rc-copy-btn:hover {
+  background: #f5e642;
+  color: #0f0f0f;
+  border-color: #f5e642;
+}
+
+.rc-copy-btn.full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ─── Hotkey floating panel ───────────────────────────────────────────────── */
+
+#rc-hotkey-panel {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 380px;
+  max-height: 500px;
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(245,230,66,0.1);
+  z-index: 2147483646;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: rc-slide-up 0.2s ease;
+}
+
+/* ─── Toast notification ──────────────────────────────────────────────────── */
+
+#rc-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: #888;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 12px;
+  z-index: 2147483647;
+  animation: rc-fade-up 0.2s ease;
+  white-space: nowrap;
+}
+
+@keyframes rc-fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rc-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rc-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Stats row ───────────────────────────────────────────────────────────── */
+
+.rc-stats {
+  display: flex;
+  gap: 10px;
+  padding: 0 2px;
+}
+
+.rc-stat {
+  font-size: 11px;
+  color: #555;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Menlo, Courier, monospace;
+}
+
+.rc-stat-warn {
+  color: #f5a623 !important;
+}
+
+/* ─── Expand button ───────────────────────────────────────────────────────── */
+
+.rc-expand-btn {
+  background: none;
+  border: none;
+  color: #444;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 5px;
+  border-radius: 4px;
+  transition: color 0.15s;
+  line-height: 1;
+}
+
+.rc-expand-btn:hover { color: #f5e642; }
+
+/* ─── Q/A flashcard styles ────────────────────────────────────────────────── */
+
+.rc-q {
+  color: #f5e642;
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.rc-a {
+  color: #c4c4c4;
+  padding-left: 10px;
+  border-left: 2px solid #2a2a2a;
+  margin-bottom: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ─── Explain rate-limit mini bar ────────────────────────────────────────── */
+
+.rc-limit-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rc-limit-bar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rc-limit-label {
+  font-size: 10px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Menlo, Courier, monospace;
+}
+
+.rc-limit-count {
+  font-size: 10px;
+  color: #f5e642;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Menlo, Courier, monospace;
+}
+
+.rc-limit-track {
+  height: 3px;
+  background: #1e1e1e;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.rc-limit-fill {
+  height: 100%;
+  background: #f5e642;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.rc-limit-warn  { background: #f5a623 !important; }
+.rc-limit-count.rc-stat-warn { color: #f5a623; }
+
+/* ─── Follow-up buttons (explain mode) ────────────────────────────────────── */
+
+.rc-followup-btn {
+  background: #1a1a1a;
+  color: #888;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex: 1;
+  min-width: 100px;
+}
+
+.rc-followup-btn:hover {
+  background: #f5e642;
+  color: #0f0f0f;
+  border-color: #f5e642;
+}

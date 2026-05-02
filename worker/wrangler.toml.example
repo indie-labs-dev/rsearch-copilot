@@ -1,0 +1,23 @@
+name = "your-r-searcher-worker"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Optional plain-text variables for local development or emergency controls:
+# [vars]
+# APP_ENV = "development"
+# MAINTENANCE_MODE = "false"
+# AI_DISABLED = "false"
+# MAX_GLOBAL_BUDGET_OVERRIDE = "0"
+
+# Optional KV-backed abuse controls.
+# If you want burst throttling and conservative global budget accounting,
+# create a namespace and uncomment the block below:
+#
+# wrangler kv:namespace create "RATE_LIMIT_KV"
+#
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "paste_your_namespace_id_here"
+
+# Required secret:
+# wrangler secret put AI_API_KEY
