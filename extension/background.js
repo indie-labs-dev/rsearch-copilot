@@ -46,7 +46,7 @@ void ensureInstallId();
 
 chrome.runtime.onInstalled.addListener(() => {
   void ensureInstallId();
-  console.log('R-Searcher v1.3 installed');
+  console.log('R-Searcher v2.0 installed');
 });
 
 chrome.runtime.onStartup.addListener(() => {

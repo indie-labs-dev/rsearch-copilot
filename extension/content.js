@@ -1,10 +1,10 @@
-﻿// â”€â”€â”€ R-Searcher Â· Content Script v1.3 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// R-Searcher - Content Script v2.0
 
 const MAX_EXPLAIN_CHARS = 2000;
 const MAX_ANALYZE_CHARS = 12000;
 const RESULT_CACHE_PREFIX = 'cachedAnalyze:';
 
-// â”€â”€â”€ Extension context guard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Extension context guard
 function isContextValid() {
   try { return !!chrome.runtime?.id; } catch { return false; }
 }
@@ -62,7 +62,7 @@ async function cacheAnalyzeResult(result, savedMin, articleWordCount, url = loca
 }
 
 
-// â”€â”€â”€ Load settings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Load settings
 
 if (isContextValid()) {
   chrome.storage.local.get(['minimalMode', 'showTooltip'], (data) => {
@@ -75,7 +75,7 @@ if (isContextValid()) {
   });
 }
 
-// â”€â”€â”€ Normalize language code â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Normalize language code
 
 function normalizeLanguageCode(code) {
   if (!code || typeof code !== 'string') return null;
@@ -335,9 +335,9 @@ function detectArticleLanguage() {
   const navigatorLang = normalizeLanguageCode(navigator.language || navigator.userLanguage);
   return navigatorLang;
 }
-// â”€â”€â”€ Open request-access page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Open request-access page
 
-// â”€â”€â”€ Text selection tooltip (with 350ms debounce) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Text selection tooltip (with 350ms debounce)
 
 function isNodeInsideOverlay(node) {
   if (!node) return false;
@@ -405,7 +405,7 @@ function showTooltip(x, y) {
 
 function hideTooltip() { tooltip?.remove(); tooltip = null; }
 
-// â”€â”€â”€ Parse META block from explain response â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Parse META block from explain response
 
 function parseMeta(raw) {
   const metaIdx = raw.indexOf('<<<META>>>');
@@ -420,14 +420,14 @@ function parseMeta(raw) {
   return { explanation, meta };
 }
 
-// â”€â”€â”€ Explain â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Explain
 
 async function triggerExplain(text) {
 
   // Enforce input size limit
   if (text.length > MAX_EXPLAIN_CHARS) {
     showPanel({ title: t('panelTitleExplain'), loading: '' });
-    showPanelError(`âš ï¸ ${t('textTooLong')}`, false);
+    showPanelError(`\u26a0\ufe0f ${t('textTooLong')}`);
     return;
   }
 
@@ -449,7 +449,7 @@ async function triggerExplain(text) {
     });
 }
 
-// â”€â”€â”€ Follow-up explain requests â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Follow-up explain requests
 
 async function triggerFollowUp(mode) {
   const body = document.getElementById('rc-panel-body');
@@ -477,7 +477,7 @@ async function triggerFollowUp(mode) {
     });
 }
 
-// â”€â”€â”€ Analyze â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Analyze
 
 async function triggerAnalyze() {
   const { text: bodyText } = extractArticleText();
@@ -507,7 +507,7 @@ async function triggerAnalyze() {
     });
 }
 
-// â”€â”€â”€ Panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Panel
 
 let panelExpanded = false;
 
@@ -520,8 +520,8 @@ function showPanel({ title, loading }) {
     <div class="rc-panel-header">
       <span class="rc-panel-title">${title}</span>
       <div style="display:flex;gap:6px;align-items:center">
-        <button class="rc-expand-btn" id="rc-expand-btn" title="Expand">â¤¢</button>
-        <button class="rc-close" id="rc-close-btn">âœ•</button>
+        <button class="rc-expand-btn" id="rc-expand-btn" title="Expand">\u2922</button>
+        <button class="rc-close" id="rc-close-btn">\u2715</button>
       </div>
     </div>
     <div class="rc-panel-body" id="rc-panel-body">
@@ -540,10 +540,10 @@ function toggleExpand() {
   if (!p) return;
   if (panelExpanded) {
     p.style.cssText = 'width:750px;max-height:80vh;bottom:24px;right:24px';
-    btn.textContent = 'â¤¡';
+    btn.textContent = '\u2921';
   } else {
     p.style.cssText = '';
-    btn.textContent = 'â¤¢';
+    btn.textContent = '\u2922';
   }
 }
 
@@ -613,10 +613,10 @@ function showPanelResult(result, url, { timeSaved, meta, articleWordCount, densi
     const statsHtml = isExplain
       ? ''
       : `<div class="rc-stats">
-           ${timeSaved ? `<span class="rc-stat">â± ${t('timeSaved', timeSaved)}</span>` : ''}
+           ${timeSaved ? `<span class="rc-stat">\u23f1 ${t('timeSaved', timeSaved)}</span>` : ''}
            ${densityLabel ? `<span class="rc-stat">${t('density', densityLabel, densityPct)}</span>` : ''}
            ${hasServerRate
-             ? `<span class="rc-stat ${isWarn ? 'rc-stat-warn' : ''}">ðŸ”¢ ${t('remaining', remaining)}</span>`
+             ? `<span class="rc-stat ${isWarn ? 'rc-stat-warn' : ''}">\ud83d\udd22 ${t('remaining', remaining)}</span>`
              : ''}
          </div>`;
 
@@ -678,7 +678,7 @@ function showPanelError(text) {
 
 function closePanel() { panel?.remove(); panel = null; }
 
-// â”€â”€â”€ Copy as Markdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Copy as Markdown
 
 function copyAsMarkdown(result, url) {
   const normalizedResult = formatCopyText(result);
@@ -717,7 +717,7 @@ function formatCopyText(text) {
   // Keep existing structure when the content already carries clear formatting.
   if (
     normalized.includes('\n\n') ||
-    /^[-*â€¢]\s/m.test(normalized) ||
+    /^[-*\u2022]\s/m.test(normalized) ||
     /^#{1,6}\s/m.test(normalized) ||
     /^Q:\s/m.test(normalized) ||
     /^A:\s/m.test(normalized)
@@ -727,7 +727,7 @@ function formatCopyText(text) {
 
   // Plain one-block explains are easier to reuse when we split them into
   // a few readable paragraphs without changing the wording itself.
-  const sentences = normalized.match(/.+?(?:[.!?â€¦]+(?=\s|$)|$)/g)?.map((part) => part.trim()).filter(Boolean) || [];
+  const sentences = normalized.match(/.+?(?:[.!?\u2026]+(?=\s|$)|$)/g)?.map((part) => part.trim()).filter(Boolean) || [];
   if (sentences.length < 3) return normalized;
 
   const paragraphs = [];
@@ -756,7 +756,7 @@ function formatCopyText(text) {
   return paragraphs.join('\n\n');
 }
 
-// â”€â”€â”€ Hotkey / Popup message handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Hotkey / Popup message handlers
 
 if (isContextValid()) {
   chrome.runtime.onMessage.addListener(async (msg, _sender, sendResponse) => {
@@ -845,7 +845,7 @@ if (isContextValid()) {
   });
 }
 
-// â”€â”€â”€ API call (with 12 s timeout) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// API call (with 12 s timeout)
 
 async function callAPI({ text, mode, url, language, previousExplanation, installId }) {
   try {
@@ -912,7 +912,7 @@ async function callAPI({ text, mode, url, language, previousExplanation, install
   }
 }
 
-// â”€â”€â”€ Escape HTML for safe rendering â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Escape HTML for safe rendering
 
 function escapeHtml(str) {
   const div = document.createElement('div');
@@ -920,7 +920,7 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-// â”€â”€â”€ Shared markdown formatter â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Shared markdown formatter
 
 function formatText(text) {
   text = text || '';
@@ -931,7 +931,7 @@ function formatText(text) {
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/^Q:\s*(.+)$/gm, '<div class="rc-q">Q: $1</div>')
     .replace(/^A:\s*(.+)$/gm, '<div class="rc-a">$1</div>')
-    .replace(/^[-â€¢]\s*(.+)$/gm, '<li>$1</li>')
+    .replace(/^[-\u2022]\s*(.+)$/gm, '<li>$1</li>')
     .replace(/(<li>.*?<\/li>)/gs, '<ul>$1</ul>')
     .replace(/\n\n/g, '</p><p>')
     .replace(/\n/g, '<br>');
@@ -984,7 +984,7 @@ function flattenAnalyzeSections(sections) {
   ].join('\n\n');
 }
 
-// â”€â”€â”€ Toast â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Toast
 
 function showToast(message) {
   document.getElementById('rc-toast')?.remove();
@@ -994,5 +994,4 @@ function showToast(message) {
   document.body.appendChild(el);
   setTimeout(() => el.remove(), 3000);
 }
-
 
