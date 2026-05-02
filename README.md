@@ -1,6 +1,11 @@
 # R-Searcher
 
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/hdjdfpnogclokhfkdfdkndhneipmkipp?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/r-searcher/hdjdfpnogclokhfkdfdkndhneipmkipp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 R-Searcher is an open-source AI reading assistant for Chrome. It helps you analyze long articles, explain difficult passages, and keep structured notes without leaving the page.
+
+**[→ Install from Chrome Web Store](https://chromewebstore.google.com/detail/r-searcher/hdjdfpnogclokhfkdfdkndhneipmkipp)** · or self-host your own backend using this repository.
 
 The project uses a self-hosted architecture:
 
@@ -103,8 +108,8 @@ Full setup and troubleshooting guide: [docs/self-hosting.md](docs/self-hosting.m
 
 Contribution guidance lives in [CONTRIBUTING.md](CONTRIBUTING.md).
 
-- Bugs: prefer GitHub issues once the public GitHub repository is live
-- Feature proposals: GitHub issues/discussions when available
+- Bugs: open a [GitHub issue](../../issues)
+- Feature proposals: [GitHub issues or discussions](../../issues)
 - Security issues: report privately via [SECURITY.md](SECURITY.md), not in a public issue first
 
 ## License

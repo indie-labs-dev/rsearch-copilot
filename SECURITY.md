@@ -4,7 +4,7 @@
 
 Please do not report security vulnerabilities in public issues, pull requests, or discussions first.
 
-Use GitHub private vulnerability reporting when it is enabled for the public repository. If that private channel is not available yet, contact the maintainer privately through [indielabs.tech](https://indielabs.tech/) rather than opening a public exploit report. Clearly label the message as `Security`. Include:
+Use GitHub private vulnerability reporting when it is enabled for the public repository. If that private channel is not available yet, contact the maintainer privately through [indielabs.tech](https://indielabs.tech/) or via the support link on the [Chrome Web Store page](https://chromewebstore.google.com/detail/r-searcher/hdjdfpnogclokhfkdfdkndhneipmkipp) rather than opening a public exploit report. Clearly label the message as `Security`. Include:
 
 - A short summary of the issue
 - Affected components, files, or endpoints

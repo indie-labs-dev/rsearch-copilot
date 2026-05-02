@@ -6,7 +6,7 @@ Thanks for helping improve R-Searcher.
 
 - Read the setup flow in [README.md](README.md) and [docs/self-hosting.md](docs/self-hosting.md).
 - Keep changes aligned with the current self-hosted architecture: browser extension + Cloudflare Worker backend.
-- If you plan a large change, open an issue or discussion first once the public GitHub repository is live.
+- If you plan a large change, open an issue or discussion first.
 
 ## Good first contribution areas
 
@@ -40,6 +40,6 @@ Thanks for helping improve R-Searcher.
 
 ## Reporting bugs and requesting features
 
-- Reproducible bugs: prefer GitHub issues once the public GitHub repository is live.
-- Feature requests and product feedback: use GitHub discussions/issues when available.
+- Reproducible bugs: open a [GitHub issue](../../issues).
+- Feature requests and product feedback: use [GitHub discussions or issues](../../issues).
 - Security issues: follow [SECURITY.md](SECURITY.md) and do not open a public issue first.
