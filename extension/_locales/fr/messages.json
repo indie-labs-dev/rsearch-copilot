@@ -1,0 +1,22 @@
+{
+  "extension_name": {
+    "message": "R-Searcher",
+    "description": "Extension name"
+  },
+  "extension_description": {
+    "message": "Explique et r?sume intelligemment n?importe quel article. L?IA choisit automatiquement le meilleur format.",
+    "description": "Extension description shown in Chrome and Chrome Web Store"
+  },
+  "command_smart_explain": {
+    "message": "Expliquer la sélection",
+    "description": "Command description for Smart Explain"
+  },
+  "command_smart_analyze": {
+    "message": "Lire la page",
+    "description": "Command description for Smart Analyze"
+  },
+  "command_copy_last": {
+    "message": "Copier le dernier résultat",
+    "description": "Command description for Copy last result"
+  }
+}

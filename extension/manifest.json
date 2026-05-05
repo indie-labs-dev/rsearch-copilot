@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "R-Searcher",
+  "name": "__MSG_extension_name__",
   "version": "2.0.0",
-  "description": "Smart explain & summarize any article. AI picks the best format automatically.",
+  "description": "__MSG_extension_description__",
+  "default_locale": "en",
   "permissions": [
     "activeTab",
     "storage",
@@ -17,6 +18,7 @@
   },
   "action": {
     "default_popup": "popup.html",
+    "default_title": "__MSG_extension_name__",
     "default_icon": {
       "48": "R48.png",
       "128": "R128.png"
@@ -28,21 +30,21 @@
         "default": "Ctrl+Shift+E",
         "mac": "Command+Shift+E"
       },
-      "description": "What's this? - Smart Explain"
+      "description": "__MSG_command_smart_explain__"
     },
     "smart-analyze": {
       "suggested_key": {
         "default": "Ctrl+Shift+R",
         "mac": "Command+Shift+R"
       },
-      "description": "Read full page"
+      "description": "__MSG_command_smart_analyze__"
     },
     "copy-last": {
       "suggested_key": {
         "default": "Ctrl+Shift+C",
         "mac": "Command+Shift+C"
       },
-      "description": "Copy last result to clipboard"
+      "description": "__MSG_command_copy_last__"
     }
   },
   "content_scripts": [
