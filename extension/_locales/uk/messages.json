@@ -4,19 +4,19 @@
     "description": "Extension name"
   },
   "extension_description": {
-    "message": "??????? ??????? ?? ?????????? ??????. ?? ??? ??????????? ?????? ????????? ??????.",
+    "message": "Пояснює та стисло переказує будь-які статті за допомогою ШІ. Формат відповіді добирається автоматично.",
     "description": "Extension description shown in Chrome and Chrome Web Store"
   },
   "command_smart_explain": {
-    "message": "Пояснити виділене",
+    "message": "Пояснити виділений текст",
     "description": "Command description for Smart Explain"
   },
   "command_smart_analyze": {
-    "message": "Читати сторінку",
+    "message": "Стисло переказати сторінку",
     "description": "Command description for Smart Analyze"
   },
   "command_copy_last": {
-    "message": "Скопіювати результат",
+    "message": "Скопіювати останній результат",
     "description": "Command description for Copy last result"
   }
 }

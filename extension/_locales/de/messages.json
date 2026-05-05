@@ -4,15 +4,15 @@
     "description": "Extension name"
   },
   "extension_description": {
-    "message": "Erkl?rt und fasst jeden Artikel intelligent zusammen. Die KI w?hlt automatisch das beste Format.",
+    "message": "Erklärt und fasst jeden Artikel mit KI zusammen. Dabei wird automatisch das passende Antwortformat gewählt.",
     "description": "Extension description shown in Chrome and Chrome Web Store"
   },
   "command_smart_explain": {
-    "message": "Auswahl erklären",
+    "message": "Ausgewählten Text erklären",
     "description": "Command description for Smart Explain"
   },
   "command_smart_analyze": {
-    "message": "Seite lesen",
+    "message": "Diese Seite zusammenfassen",
     "description": "Command description for Smart Analyze"
   },
   "command_copy_last": {

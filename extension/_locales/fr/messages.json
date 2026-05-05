@@ -4,15 +4,15 @@
     "description": "Extension name"
   },
   "extension_description": {
-    "message": "Explique et r?sume intelligemment n?importe quel article. L?IA choisit automatiquement le meilleur format.",
+    "message": "Explique et résume n’importe quel article avec l’IA. Elle choisit automatiquement le format de réponse le plus adapté.",
     "description": "Extension description shown in Chrome and Chrome Web Store"
   },
   "command_smart_explain": {
-    "message": "Expliquer la sélection",
+    "message": "Expliquer le texte sélectionné",
     "description": "Command description for Smart Explain"
   },
   "command_smart_analyze": {
-    "message": "Lire la page",
+    "message": "Résumer cette page",
     "description": "Command description for Smart Analyze"
   },
   "command_copy_last": {

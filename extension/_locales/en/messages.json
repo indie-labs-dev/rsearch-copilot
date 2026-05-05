@@ -4,19 +4,19 @@
     "description": "Extension name"
   },
   "extension_description": {
-    "message": "Smart explain and summarize any article. AI picks the best format automatically.",
+    "message": "Explain and summarize any article with AI. It automatically chooses the best response format.",
     "description": "Extension description shown in Chrome and Chrome Web Store"
   },
   "command_smart_explain": {
-    "message": "Smart Explain selected text",
+    "message": "Explain selected text",
     "description": "Command description for Smart Explain"
   },
   "command_smart_analyze": {
-    "message": "Smart Analyze full page",
+    "message": "Summarize this page",
     "description": "Command description for Smart Analyze"
   },
   "command_copy_last": {
-    "message": "Copy last result",
+    "message": "Copy the last result",
     "description": "Command description for Copy last result"
   }
 }

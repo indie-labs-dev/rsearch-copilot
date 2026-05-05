@@ -4,19 +4,19 @@
     "description": "Extension name"
   },
   "extension_description": {
-    "message": "???? ????????? ? ????????? ??????. ?? ??? ???????? ?????? ?????? ?????????????.",
+    "message": "Объясняет и кратко пересказывает любые статьи с помощью ИИ. Формат ответа подбирается автоматически.",
     "description": "Extension description shown in Chrome and Chrome Web Store"
   },
   "command_smart_explain": {
-    "message": "Объяснить выделенное",
+    "message": "Объяснить выделенный текст",
     "description": "Command description for Smart Explain"
   },
   "command_smart_analyze": {
-    "message": "Читать страницу",
+    "message": "Кратко пересказать страницу",
     "description": "Command description for Smart Analyze"
   },
   "command_copy_last": {
-    "message": "Скопировать результат",
+    "message": "Скопировать последний результат",
     "description": "Command description for Copy last result"
   }
 }
