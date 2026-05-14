@@ -32,7 +32,7 @@ function logEvent(event, fields) {
 // Intentional early-stage spending ceiling. Not exact billing math, intentionally conservative.
 const GLOBAL_DAILY_TOKEN_BUDGET = 10000000;
 const MAX_EXPLAIN_CHARS = 2000;
-const MAX_ANALYZE_CHARS = 12000;
+const MAX_ANALYZE_CHARS = 50000;
 
 // ─── Emergency controls (env-driven) ───────────────────────────────────────────
 

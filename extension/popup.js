@@ -1,7 +1,7 @@
 // R-Searcher · Popup v1.8
 
 const RESULT_CACHE_PREFIX = 'cachedAnalyze:';
-const MAX_ANALYZE_CHARS = 12000;
+const MAX_ANALYZE_CHARS = 50000;
 
 let analyzeResult = null;
 let analyzeResultSections = null;

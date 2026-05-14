@@ -1,7 +1,7 @@
 // R-Searcher - Content Script v2.0
 
 const MAX_EXPLAIN_CHARS = 2000;
-const MAX_ANALYZE_CHARS = 12000;
+const MAX_ANALYZE_CHARS = 50000;
 const RESULT_CACHE_PREFIX = 'cachedAnalyze:';
 
 // Extension context guard
