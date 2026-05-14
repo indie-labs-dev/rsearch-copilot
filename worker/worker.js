@@ -456,7 +456,7 @@ async function consumeUserRateLimit(env, installId, mode, effectivePlan) {
 // ─── Gemini 2.5 Flash-Lite ────────────────────────────────────────────────────
 
 async function callGemini(env, prompt, mode) {
-  const maxTokens = mode === 'analyze' ? 2000 : 800;
+  const maxTokens = mode === 'analyze' ? 8192 : 800;
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${env.AI_API_KEY}`,
     {

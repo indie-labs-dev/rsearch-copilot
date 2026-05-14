@@ -1,7 +1,8 @@
 // R-Searcher · Background Service Worker
 
 const API_BASE_URL_KEY = 'apiBaseUrl';
-const REQUEST_TIMEOUT_MS = 12000;
+const REQUEST_TIMEOUT_MS = 30000;
+const ANALYZE_TIMEOUT_MS = 60000;
 
 function normalizeApiBaseUrl(raw) {
   if (typeof raw !== 'string') return '';
@@ -93,8 +94,9 @@ async function proxyWorkerRequest(path, payload) {
     return resolvedApiBaseUrl;
   }
 
+  const timeoutMs = payload?.mode === 'analyze' ? ANALYZE_TIMEOUT_MS : REQUEST_TIMEOUT_MS;
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const resp = await fetch(`${resolvedApiBaseUrl.apiBaseUrl}${path}`, {
       method: 'POST',

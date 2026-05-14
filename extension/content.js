@@ -213,12 +213,14 @@ function extractCleanTextFromElement(el) {
 
 function extractArticleText() {
   const selectorCandidates = [
-    { selector: 'article', priority: 0 },
-    { selector: '.article-body', priority: 1 },
-    { selector: '.post-content', priority: 1 },
-    { selector: '.entry-content', priority: 1 },
-    { selector: '#article-body', priority: 1 },
-    { selector: '#main-content', priority: 1 },
+    // Site-specific high-priority selectors (checked first)
+    { selector: '#article-body', priority: -1 },      // dev.to and similar
+    { selector: '.crayons-article__body', priority: -1 }, // dev.to v2
+    { selector: '.article-body', priority: 0 },
+    { selector: '.post-content', priority: 0 },
+    { selector: '.entry-content', priority: 0 },
+    { selector: '#main-content', priority: 0 },
+    { selector: 'article', priority: 1 },
     { selector: '[role="main"]', priority: 3 },
     { selector: 'main', priority: 4 },
   ];
@@ -244,12 +246,26 @@ function extractArticleText() {
   }
 
   if (candidates.length) {
+    // If a lower-priority candidate is an ancestor of a higher-priority one,
+    // prefer the more specific (higher-priority) descendant.
+    // This prevents picking <article> when #article-body is nested inside it.
     candidates.sort((a, b) => {
       if (a.priority !== b.priority) return a.priority - b.priority;
+      // Same priority: prefer shorter text (more focused)
       return a.length - b.length;
     });
 
-    const best = candidates[0];
+    // Filter out candidates that contain a better candidate inside them
+    const filtered = candidates.filter((candidate, _, arr) => {
+      return !arr.some(
+        (other) =>
+          other !== candidate &&
+          other.priority <= candidate.priority &&
+          candidate.el.contains(other.el)
+      );
+    });
+
+    const best = (filtered.length ? filtered : candidates)[0];
     return { text: best.text, el: best.el };
   }
 
